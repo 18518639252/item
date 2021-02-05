@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td>姓名</td>
+                <td>课程</td>
+                <td>成绩</td>
+                <td>操作</td>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script>
+        var datas = [{
+            name: '张三',
+            classes: '数学',
+            score: 76
+        }, {
+            name: '李四',
+            classes: '数学',
+            score: 76
+        }, {
+            name: '王五',
+            classes: '数学',
+            score: 76
+        }, {
+            name: '小明',
+            classes: '数学',
+            score: 76
+        }, {
+            name: '小张',
+            classes: '数学',
+            score: 76
+        }];
+        var tbody = document.querySelector('tbody');
+        for (i = 0; i < datas.length; i++) {
+            var tr = document.createElement('tr');
+            tbody.appendChild(tr);
+            for (var k in datas[i]) {
+                var td = document.createElement('td');
+                tr.appendChild(td);
+                td.innerHTML = datas[i][k];
+            }
+            var td = document.createElement('td');
+            td.innerHTML = '<a href="javascript:;">删除</a>';
+            tr.appendChild(td);
+            var a = document.querySelectorAll('a');
+            a[i].onclick = function() {
+                tbody.removeChild(this.parentNode.parentNode);
+
+            }
+
+        }
+    </script>
+</body>
+
+</html>
